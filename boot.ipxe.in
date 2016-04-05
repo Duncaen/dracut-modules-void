@@ -1,0 +1,14 @@
+#!ipxe
+dhcp
+kernel {{KERNEL}}
+imgargs {{KERNEL}} root=voidlive \
+  rd.xbps.architecture=x86_64-musl rd.xbps.architecture=x86_64-musl,yolo \
+  rd.xbps.bestmatching= rd.xbps.cachedir xbps.preserve=foo,bar \
+  rd.xbps.preserve=tofu xbps.preserve xbps-install.00-bla.automatic=foo \
+  rd.xbps-install.00-bla.automatic=bar xbps-install.00-bla \
+  rd.xbps-install.00-bar.debug rd.xbps-install.00-bar.debug=true \
+  rd.xbps-install.debug rd.xbps-install.debug rd.xbps-install.02-hehe.debug \
+  rd.xbps-install.02-hehe.rootdir=/trolol rd.xbps-install.02-hehe.rootdir=/tmp \
+  rd.break=pre-udev
+initrd {{INITRAM}}
+boot
